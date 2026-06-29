@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to our real estate and property management services.">
-    <title>Home - Real Estate & Property Services</title>
+    <meta name="description" content="Welcome to PropertyHub - luxury real estate and property management services.">
+    <title>Home - PropertyHub Real Estate</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -67,14 +67,67 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Find Your Perfect Property</h2>
-                <p>Discover exceptional properties and professional real estate services</p>
-                <a href="property-list.html" class="btn btn-primary">Browse Properties</a>
+        
+        <!-- ================================================================
+             HERO SLIDER SECTION
+             ================================================================ -->
+        <section id="hero-slider" class="hero-slider">
+            <div class="hero-slides-container">
+                
+                <!-- Slide 1 -->
+                <article class="hero-slide" data-slide="0" style="background-image: url('assets/images/hero-1.jpg');">
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-slide-content">
+                        <p class="hero-slide-eyebrow">Introducing a new way to showcase properties</p>
+                        <h2 class="hero-slide-title">Modern Spaces and Premium Apartment Complexes</h2>
+                        <p class="hero-slide-subtitle">Welcome to Hendon Residence Showcase</p>
+                        <a href="property-single.html" class="btn btn-primary">Discover</a>
+                    </div>
+                </article>
+
+                <!-- Slide 2 -->
+                <article class="hero-slide" data-slide="1" style="background-image: url('assets/images/hero-2.jpg');">
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-slide-content">
+                        <p class="hero-slide-eyebrow">Luxury meets comfort</p>
+                        <h2 class="hero-slide-title">Discover Elegant Living Spaces</h2>
+                        <p class="hero-slide-subtitle">Experience premium properties designed for modern lifestyles</p>
+                        <a href="property-single.html" class="btn btn-primary">Discover</a>
+                    </div>
+                </article>
+
+                <!-- Slide 3 -->
+                <article class="hero-slide" data-slide="2" style="background-image: url('assets/images/hero-3.jpg');">
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-slide-content">
+                        <p class="hero-slide-eyebrow">Your perfect home awaits</p>
+                        <h2 class="hero-slide-title">Premium Property Investment Opportunities</h2>
+                        <p class="hero-slide-subtitle">Join our community of satisfied property owners</p>
+                        <a href="property-single.html" class="btn btn-primary">Discover</a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Left Arrow Control -->
+            <button class="hero-slider-arrow hero-slider-prev" aria-label="Previous slide">
+                <span>&#10094;</span>
+            </button>
+
+            <!-- Right Arrow Control -->
+            <button class="hero-slider-arrow hero-slider-next" aria-label="Next slide">
+                <span>&#10095;</span>
+            </button>
+
+            <!-- Pagination Dots -->
+            <div class="hero-slider-pagination">
+                <button class="hero-slider-dot active" data-dot="0" aria-label="Go to slide 1"></button>
+                <button class="hero-slider-dot" data-dot="1" aria-label="Go to slide 2"></button>
+                <button class="hero-slider-dot" data-dot="2" aria-label="Go to slide 3"></button>
             </div>
         </section>
 
+        <!-- Featured Properties Section -->
         <section class="featured-properties">
             <div class="container">
                 <h3>Featured Properties</h3>
@@ -119,6 +172,7 @@
             </div>
         </section>
 
+        <!-- Services Overview Section -->
         <section class="services-overview">
             <div class="container">
                 <h3>Our Services</h3>
@@ -143,6 +197,7 @@
                 <a href="services.html" class="btn btn-secondary">View All Services</a>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
