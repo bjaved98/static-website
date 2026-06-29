@@ -107,6 +107,187 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ================================================================
+// HERO SLIDER
+// ================================================================
+
+class HeroSlider {
+    constructor() {
+        this.slides = document.querySelectorAll('.hero-slide');
+        this.dots = document.querySelectorAll('.hero-slider-dot');
+        this.prevBtn = document.querySelector('.hero-slider-prev');
+        this.nextBtn = document.querySelector('.hero-slider-next');
+        this.currentSlide = 0;
+        this.autoplayInterval = null;
+        this.autoplayDuration = 6000; // 6 seconds
+        this.isHovered = false;
+
+        if (this.slides.length > 0) {
+            this.init();
+        }
+    }
+
+    init() {
+        // Set first slide as active
+        this.showSlide(0);
+
+        // Attach event listeners
+        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
+        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Pause on hover
+        const slider = document.getElementById('hero-slider');
+        if (slider) {
+            slider.addEventListener('mouseenter', () => {
+                this.isHovered = true;
+                this.pauseAutoplay();
+            });
+            slider.addEventListener('mouseleave', () => {
+                this.isHovered = false;
+                this.startAutoplay();
+            });
+        }
+
+        // Start autoplay
+        this.startAutoplay();
+    }
+
+    showSlide(index) {
+        // Remove active class from all slides
+        this.slides.forEach(slide => slide.classList.remove('active'));
+        this.dots.forEach(dot => dot.classList.remove('active'));
+
+        // Add active class to current slide
+        this.slides[index].classList.add('active');
+        this.dots[index].classList.add('active');
+        this.currentSlide = index;
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.slides.length;
+        this.showSlide(nextIndex);
+        this.resetAutoplay();
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.showSlide(prevIndex);
+        this.resetAutoplay();
+    }
+
+    goToSlide(index) {
+        this.showSlide(index);
+        this.resetAutoplay();
+    }
+
+    startAutoplay() {
+        if (!this.isHovered) {
+            this.autoplayInterval = setInterval(() => {
+                this.nextSlide();
+            }, this.autoplayDuration);
+        }
+    }
+
+    pauseAutoplay() {
+        clearInterval(this.autoplayInterval);
+    }
+
+    resetAutoplay() {
+        this.pauseAutoplay();
+        this.startAutoplay();
+    }
+}
+
+// Initialize hero slider when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        new HeroSlider();
+    });
+} else {
+    new HeroSlider();
+}
+
+// ================================================================
+// COUNTERS - Animated number counting with IntersectionObserver
+// ================================================================
+
+class CounterAnimator {
+    constructor() {
+        this.counters = document.querySelectorAll('.counter-number');
+        this.hasAnimated = false;
+
+        if (this.counters.length > 0) {
+            this.init();
+        }
+    }
+
+    init() {
+        // Create Intersection Observer
+        const options = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Only animate once
+                if (entry.isIntersecting && !this.hasAnimated) {
+                    this.animateCounters();
+                    this.hasAnimated = true;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        // Observe the first counter section
+        const introSection = document.getElementById('property-intro');
+        if (introSection) {
+            observer.observe(introSection);
+        }
+    }
+
+    animateCounters() {
+        this.counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const startTime = Date.now();
+            const startValue = 0;
+
+            const animate = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function (ease-out)
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
+
+                counter.textContent = currentValue.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            };
+
+            animate();
+        });
+    }
+}
+
+// Initialize counter animator
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        new CounterAnimator();
+    });
+} else {
+    new CounterAnimator();
+}
+
+// ================================================================
 // CONTACT FORM - Form Submission Handler
 // ================================================================
 
