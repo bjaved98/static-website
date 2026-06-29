@@ -1,0 +1,272 @@
+/* ================================================================
+   RESPONSIVE CSS
+   ================================================================ */
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .properties-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .footer-container {
+        gap: 30px;
+    }
+}
+
+/* Medium devices (576px - 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .featured-properties,
+    .services-overview {
+        padding: 60px 0;
+    }
+
+    .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .property-image {
+        height: 200px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .page-header {
+        padding: 60px 0;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Small devices (< 576px) */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .featured-properties,
+    .services-overview {
+        padding: 40px 0;
+    }
+
+    .featured-properties .container h3,
+    .services-overview h3 {
+        font-size: 1.5rem;
+    }
+
+    .property-card {
+        border: none;
+    }
+
+    .property-image {
+        height: 180px;
+    }
+
+    .property-info {
+        padding: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .footer-section h5 {
+        font-size: 0.95rem;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+    }
+
+    .page-header {
+        padding: 40px 0;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-header p {
+        font-size: 0.95rem;
+    }
+
+    .breadcrumb ul {
+        font-size: 0.85rem;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices (< 480px) */
+@media (max-width: 479px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .featured-properties .container > p {
+        font-size: 1rem;
+    }
+
+    .property-price {
+        font-size: 1.1rem;
+    }
+
+    .property-info p {
+        font-size: 0.85rem;
+    }
+
+    .page-header {
+        padding: 30px 0;
+    }
+
+    .page-header h1 {
+        font-size: 1.35rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+    }
+
+    .mt-20 { margin-top: 15px; }
+    .mt-40 { margin-top: 25px; }
+    .mb-20 { margin-bottom: 15px; }
+    .mb-40 { margin-bottom: 25px; }
+    .pt-40 { padding-top: 25px; }
+    .pb-40 { padding-bottom: 25px; }
+}
+
+/* ================================================================
+   PRINT STYLES
+   ================================================================ */
+@media print {
+    header.header,
+    .footer,
+    .btn {
+        display: none;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    .hero {
+        display: none;
+    }
+}
